@@ -1,7 +1,7 @@
 import React from 'react';
 import { Shuffle, Star } from 'lucide-react';
 
-export default function Recommendation({ movie, onRecommend, isLoading }) {
+export default function Recommendation({ movie, onRecommend, isLoading, onMovieClick }) {
   return (
     <div className="flex flex-col items-center mb-16 px-4">
       <button 
@@ -14,8 +14,10 @@ export default function Recommendation({ movie, onRecommend, isLoading }) {
       </button>
 
       {movie && (
-        <div className="w-full max-w-3xl relative rounded-3xl p-1 bg-gradient-to-br from-cyan-500/30 to-blue-600/30 backdrop-blur-xl animate-[fadeIn_0.5s_ease-out]">
-          {/* Inner Glass Card */}
+        <div 
+          onClick={() => onMovieClick(movie.id)}
+          className="w-full max-w-3xl relative rounded-3xl p-1 bg-gradient-to-br from-cyan-500/30 to-blue-600/30 backdrop-blur-xl animate-[fadeIn_0.5s_ease-out] cursor-pointer hover:scale-[1.02] transition-transform duration-300"
+        >
           <div className="flex flex-col md:flex-row gap-6 bg-black/60 rounded-[1.4rem] p-6 backdrop-blur-2xl border border-white/10">
             <img 
               src={movie.image} 

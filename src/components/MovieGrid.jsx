@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from './MovieCard';
 import { Film } from 'lucide-react';
 
-export default function MovieGrid({ movies, isLoading, error, selectedGenre }) {
+export default function MovieGrid({ movies, isLoading, error, selectedGenre, onMovieClick, onAddClick }) {
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-24">
@@ -35,7 +35,12 @@ export default function MovieGrid({ movies, isLoading, error, selectedGenre }) {
       </h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieCard 
+            key={movie.id} 
+            movie={movie} 
+            onClick={() => onMovieClick(movie.id)} 
+            onAddClick={onAddClick} 
+          />
         ))}
       </div>
     </div>

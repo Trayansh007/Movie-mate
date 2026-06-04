@@ -1,1 +1,34 @@
 @import "tailwindcss";
+
+/* Custom Scrollbar Styles */
+@layer utilities {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #06b6d4; /* Cyan 500 */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #0891b2; /* Cyan 600 */
+  }
+
+  /* For Firefox */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #06b6d4 rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Base body background to prevent white flashes */
+body {
+  background-color: #0a0a0a;
+}
